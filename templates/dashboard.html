@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .re{
+        background-color:skyblue;
+        background-size:100%;
+        margin-top:200px;
+        margin-left:400px;
+        margin-right:400px;
+
+        }
+    </style>
+</head>
+<center>
+<body bgcolor="gray">
+<h1>wel-come  {{name}}</h1>
+<form class="re" method="post">
+  {% csrf_token %}
+  {% for field in form %}<br><br>
+  {{field.label}}<br>
+  {{field}}
+  {% endfor %}<br><br>
+  <input type="submit" value="sumbit">
+
+
+</form>
+
+</body>
+</center>
+</html>
+{%  endblock %}

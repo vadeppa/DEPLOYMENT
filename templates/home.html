@@ -1,0 +1,30 @@
+{%  extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    h1{
+    color:red;
+    }
+    h2{
+    color:green;
+    }
+    .a{
+    size:1000px;
+    }
+</style>
+<center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCCO_uvYYp4GmoCEBSvujTZh3aYQ0k6015Mg&usqp=CAU" alt="Girl in a jacket" width="400" height="300"></center>
+
+<form action="" method="post">
+    {% csrf_token %}
+   <h1>IP addr:{{ip}}</h1>
+    <h1>number of logins: {{ct}}</h1>
+    {% for fm in form %}
+    <h1>{{fm.Query}}</h1><br>
+    <h2>{{fm.Ans}}</h2><br>
+    <a href="edit/{{fm.id}}">Edit</a>
+     <a href="delete/{{fm.id}}">Delete</a>
+    {% endfor %}
+
+</form>
+
+{% endblock %}

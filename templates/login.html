@@ -1,0 +1,42 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>User Login</title>
+ <style>
+ p{
+  color:red;
+ }
+ .re{
+  background-color:skyblue;
+        background-size:100%;
+        margin-top:200px;
+        margin-left:500px;
+        margin-right:500px;
+
+ }
+ </style>
+</head>
+<center>
+<body bgcolor="gray">
+ <form class="re" method="post" novalidate>
+  {% csrf_token %}
+  {% if form.non_field_errors %}
+   {% for error in form.non_field_errors %}
+    <p class="er">{{error}}</p>
+   {% endfor %}
+  {% endif %}
+  {% for fm in form %}
+   {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br><br>
+  {% endfor %}
+  <input type="submit" value="Login">
+ </form>
+
+</body>
+</center>
+</html>
+{% endblock %}

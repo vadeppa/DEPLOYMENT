@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>User Profile</title>
+</head>
+<body>
+ <h1></h1>
+ <h1>THANK YOU FOR VISIT:   vadeppa {{name}}</h1>
+ {% if messages %}
+  {% for message in messages %}
+   <small {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</small>
+  {% endfor %}
+ {% endif %}
+ <a href="{% url 'logout' %}"><h2>logout</h2></a>
+
+</body>
+</html>
+{% endblock %}
